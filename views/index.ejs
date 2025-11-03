@@ -3,9 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= message %></title>
+  <title>asd</title>
 </head>
 <body>
-  <h1><%= message %></h1>
+  
+  <form method="post" action="/submit">
+    <label>Name:</label>
+    <input type="text" id="name" name="name" value="<%= dto ? dto.name : '' %>"><br>
+    <label>Email:</label>
+    <input type="text" id="email" name="email" value="<%= dto ? dto.email : '' %>"><br>
+    <label>Date:</label>
+    <input type="date" id="date" name="date" value="<%= dto ? dto.date : '' %>"><br>
+    <label>Number</label>
+    <input type="number" id="groupnumber" name="groupNumber" value="<%= dto ? dto.groupNumber : '' %>"><br>
+    <button type="submit">Submit</button>
+    <div style="color: red;">
+            <ul>
+                <% if (errors && errors.length) { %>
+                    <% errors.forEach(error => { %>
+                        <li><%= error %></li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </div>
+
+  </form>
 </body>
 </html>
