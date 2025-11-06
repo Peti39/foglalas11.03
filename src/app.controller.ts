@@ -39,7 +39,7 @@ export class AppController {
     if(newBookingDto.email.trim() == ""){
       errors.push("Must give an email")
     }
-    if(!emailregex.test(newBookingDto.email)){
+    else if(!emailregex.test(newBookingDto.email)){
       errors.push("Email must be valid")
     }
 
@@ -61,7 +61,6 @@ export class AppController {
     }
 
     if(errors.length == 0){
-      //TODO: Uploud to DB
       const filePath = path.join(__dirname, '..', 'reservation.csv');
  
       const header = 'name;email;date;groupNumber\n';
